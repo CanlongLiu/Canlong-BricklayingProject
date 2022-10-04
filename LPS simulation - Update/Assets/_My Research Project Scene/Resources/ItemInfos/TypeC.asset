@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed2a23ed5d2278f4ca67e5152648be5b, type: 3}
+  m_Name: TypeC
+  m_EditorClassIdentifier: 
+  name: TypeC
+  prefab: {fileID: 8865657772777822660, guid: 75a84e47b441761449df4992d1e5377f, type: 3}
