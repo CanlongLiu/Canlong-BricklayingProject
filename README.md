@@ -1,4 +1,4 @@
-# Canlong-s-BricklayingProject
+# LPS simulation - Pavement Project
 
 An mutliplayer virtual reality platform for LPS simulation and measuring player's behaviour and psychological responses.
 
