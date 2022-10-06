@@ -1,5 +1,8 @@
 # LPS simulation - Pavement Project
 
+![Background](https://user-images.githubusercontent.com/45159980/194420269-802e0312-94aa-464e-879a-ed3c574934f8.PNG)
+
+
 //General description//
 
 An mutliplayer virtual reality platform for LPS simulation and measuring player's behaviour and psychological responses.
