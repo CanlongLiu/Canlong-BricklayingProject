@@ -3,6 +3,8 @@
 ![Background](https://user-images.githubusercontent.com/45159980/194420269-802e0312-94aa-464e-879a-ed3c574934f8.PNG)
 
 
+Click this link for more information: https://bottlenose-wool-302.notion.site/How-to-play-22bbee5936d0415492fdba8cb4d10b17
+
 //General description//
 
 An mutliplayer virtual reality platform for LPS simulation and measuring player's behaviour and psychological responses.
