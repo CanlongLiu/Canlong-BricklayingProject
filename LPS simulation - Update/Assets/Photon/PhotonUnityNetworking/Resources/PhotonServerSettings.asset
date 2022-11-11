@@ -64,6 +64,10 @@ MonoBehaviour:
   - AddProductionTime
   - BagSlotChanged
   - ChangeDesign
+  - RestartGameNetwork
+  - LoadExperimentScene
+  - LoadTraditionalScene
+  - LoadWarmupScene
   DisableAutoOpenWizard: 1
   ShowSettings: 1
   DevRegionSetOnce: 1

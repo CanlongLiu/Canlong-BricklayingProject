@@ -19,29 +19,30 @@ public class UT_demo_example_event_intervals : MonoBehaviour
     {
         eventInterval0Enabled.SetActive(true);
         eventInterval0Disabled.SetActive(false);
-        PlayMakerFSM fSM = GetComponent<PlayMakerFSM>();
-        fSM.SendEvent("PlaySound");
+        //PlayMakerFSM fSM = GetComponent<PlayMakerFSM>();
+        //fSM.SendEvent("PlaySound");
 
 
     }
-    public void ShowEventInterval1()
+    public void ShowEventInterval1() // trigger the uncertainty at week 2 starts
     {
         eventInterval1Enabled.SetActive(true);
         eventInterval1Disabled.SetActive(false);
-        PlayMakerFSM fSM = GetComponent<PlayMakerFSM>();
-        fSM.SendEvent("PlaySound");
-        if (UncertaintyEventController)
-        {
-            UncertaintyEventController.TriggerUncertaintyEvent();
-        }
+        //PlayMakerFSM fSM = GetComponent<PlayMakerFSM>();
+        //fSM.SendEvent("PlaySound");
+
+        //if (UncertaintyEventController)
+        //{
+        //    UncertaintyEventController.TriggerUncertaintyEvent();
+        //}
     }
 
     public void ShowEventInterval2()
     {
         eventInterval2Enabled.SetActive(true);
         eventInterval2Disabled.SetActive(false);
-        PlayMakerFSM fSM = GetComponent<PlayMakerFSM>();
-        fSM.SendEvent("PlaySound");
+        //PlayMakerFSM fSM = GetComponent<PlayMakerFSM>();
+        //fSM.SendEvent("PlaySound");
 
     }
 
@@ -49,8 +50,8 @@ public class UT_demo_example_event_intervals : MonoBehaviour
     {
         eventInterval3Enabled.SetActive(true);
         eventInterval3Disabled.SetActive(false);
-        PlayMakerFSM fSM = GetComponent<PlayMakerFSM>();
-        fSM.SendEvent("PlaySound");
+        //PlayMakerFSM fSM = GetComponent<PlayMakerFSM>();
+        //fSM.SendEvent("PlaySound");
 
     }
 

@@ -14,6 +14,26 @@ public class GameMasrerEditor : Editor
 
         GameMaster gameMaster = (GameMaster)target;
 
+        if (GUILayout.Button("Load Warmup!"))
+        {
+            gameMaster.LoadWarmup();
+        }
+
+        if (GUILayout.Button("Load Traditional!"))
+        {
+            gameMaster.LoadTraditional();
+        }
+
+        if (GUILayout.Button("Load Experiment!"))
+        {
+            gameMaster.LoadExperiment();
+        }
+
+        if (GUILayout.Button("Reload Game!"))
+        {
+            gameMaster.ReloadGame();
+        }
+
         if (GUILayout.Button("Start Timer"))
         {
             gameMaster.StartGame();

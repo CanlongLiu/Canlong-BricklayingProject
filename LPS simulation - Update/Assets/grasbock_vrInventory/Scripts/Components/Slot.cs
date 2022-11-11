@@ -6,6 +6,7 @@ using System.Reflection;
 using UnityEngine;
 using Photon.Pun;
 using HutongGames.PlayMaker;
+using UnityEngine.XR.Interaction.Toolkit;
 
 namespace GVRI{
 
@@ -227,6 +228,11 @@ namespace GVRI{
             if (otherpv != null && otherpv.IsMine)
             {
                 Store(other.gameObject);
+                XRBaseController controller = other.GetComponent<XRBaseController>();//check and send haptics
+                if (controller) //check and send haptics
+                {
+                    controller.SendHapticImpulse(0.3f,0.05f);
+                }
             }
             else return;
 

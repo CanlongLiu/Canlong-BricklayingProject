@@ -31,10 +31,14 @@ public class RoomCreatorEditorScript : Editor
         {
             roomCreator.OnEnterButtonCicked_Tutorial();
         }
+        else if (GUILayout.Button("Join Warmup Room"))
+        {
+            roomCreator.OnEnterButtonCicked_WarmUp();
+        }
 
-      
-      
- 
+
+
+
 
 
 

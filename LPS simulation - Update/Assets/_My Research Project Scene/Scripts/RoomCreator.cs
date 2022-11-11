@@ -7,7 +7,9 @@ using TMPro;
 public class RoomCreator : MonoBehaviourPunCallbacks
 {
     private string mapType;
-
+    public TextMeshProUGUI OccupancyRateText_ForTraditional;
+    public TextMeshProUGUI OccupancyRateText_ForWarmUp;
+    public TextMeshProUGUI OccupancyRateText_ForExperiment;
 
     // Start is called before the first frame update
     void Start()
@@ -59,6 +61,12 @@ public class RoomCreator : MonoBehaviourPunCallbacks
         ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
         PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
     }
+    public void OnEnterButtonCicked_WarmUp()
+    {
+        mapType = MultiplayerVRConstants.MAP_TYPE_VALUE_WARMUP;
+        ExitGames.Client.Photon.Hashtable expectedCustomRoomProperties = new ExitGames.Client.Photon.Hashtable() { { MultiplayerVRConstants.MAP_TYPE_KEY, mapType } };
+        PhotonNetwork.JoinRandomRoom(expectedCustomRoomProperties, 0);
+    }
 
 
 
@@ -106,6 +114,13 @@ public class RoomCreator : MonoBehaviourPunCallbacks
 
 
                 }
+                else if ((string)mapType == MultiplayerVRConstants.MAP_TYPE_VALUE_WARMUP)
+                {
+                    //Load the Experiment scene
+                    PhotonNetwork.LoadLevel("Experiment Warmup");
+
+
+                }
 
         }   }   
     }
@@ -114,8 +129,43 @@ public class RoomCreator : MonoBehaviourPunCallbacks
     {
         Debug.Log(newPlayer.NickName + " joined to: " + "Player count: " + PhotonNetwork.CurrentRoom.PlayerCount);
     }
-    
 
+    public override void OnRoomListUpdate(List<RoomInfo> roomList)
+    {
+        if (roomList.Count == 0)
+        {
+            //There is no room at all
+            OccupancyRateText_ForTraditional.text = 0 + " / " + 20;
+            OccupancyRateText_ForExperiment.text = 0 + " / " + 20;
+            OccupancyRateText_ForWarmUp.text = 0 + " / " + 20;
+
+        }
+
+        foreach (RoomInfo room in roomList)
+        {
+            Debug.Log(room.Name);
+            if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_EXPERIMENT))
+            {
+                //Update the Experiment room occupancy field
+                Debug.Log("Room is a Outdoor map. Player count is: " + room.PlayerCount);
+
+                OccupancyRateText_ForExperiment.text = room.PlayerCount + " / " + 20;
+
+            }
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_EXPERIMENTTRADITIONAL))
+            {
+                Debug.Log("Room is a Traditional map. Player count is: " + room.PlayerCount);
+                OccupancyRateText_ForTraditional.text = room.PlayerCount + " / " + 20;
+            }
+            else if (room.Name.Contains(MultiplayerVRConstants.MAP_TYPE_VALUE_WARMUP))
+            {
+                Debug.Log("Room is a Warmup map. Player count is: " + room.PlayerCount);
+                OccupancyRateText_ForWarmUp.text = room.PlayerCount + " / " + 20;
+            }
+        }
+
+
+    }
 
     public override void OnJoinRandomFailed(short returnCode, string message)
     {

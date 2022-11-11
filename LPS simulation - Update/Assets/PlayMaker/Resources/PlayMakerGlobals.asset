@@ -34,13 +34,7 @@ MonoBehaviour:
   events:
   - Button1Pressed
   - Button2Pressed
-  - ProduceB
   - Button3Pressed
-  - ProduceA
-  - ProduceC
-  - ProduceD
-  - ProduceE
-  - ProduceF
   - Deliver
   - PlaySound
   - Click
@@ -146,3 +140,17 @@ MonoBehaviour:
   - ReduceSlotCapacity
   - AddDeliveryTime
   - AddDeliverTime
+  - NotifyDesignChange
+  - NotifyProduction
+  - NotifyProductionDelay
+  - NotifyDeliveryDelay
+  - Notify
+  - NotifyLowProductivity
+  - ProduceB
+  - ProduceC
+  - ProduceD
+  - ProduceE
+  - ProduceF
+  - ProduceA
+  - CheckDrawingPress
+  - OpenDrawing

@@ -19,10 +19,13 @@ EditorBuildSettings:
     guid: 36ea9988e8f0024439fcb36d24100052
   - enabled: 1
     path: Assets/_My Research Project Scene/Scenes/Experiment.unity
-    guid: f0593687f4a8197459fd70781966c91a
+    guid: b6d36d1abaee23a4e8240279e2b511da
   - enabled: 1
     path: Assets/_My Research Project Scene/Scenes/Experiment Tutorial.unity
     guid: 7669c28e2a8c7cd4a843a3c9b846f87c
+  - enabled: 1
+    path: Assets/_My Research Project Scene/Scenes/Experiment Warmup.unity
+    guid: f837b125f020ef7479368c72e8945a2a
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 08f11ff6766211144be12ad2da247835, type: 2}
     com.unity.input.settings: {fileID: 11400000, guid: d7a34712a4936424397db2c38a39479a, type: 2}

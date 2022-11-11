@@ -8,7 +8,7 @@ public class ButtonNetwork : MonoBehaviourPun
 {
 
     PhotonView pv;
-    PlayMakerFSM GoFsm;
+    public PlayMakerFSM GoFsm;
 
     [SerializeField]
     private string proudceItem;
@@ -17,7 +17,11 @@ public class ButtonNetwork : MonoBehaviourPun
     // Start is called before the first frame update
     void Start()
     {
-        GoFsm = GetComponent<PlayMakerFSM>();
+        if (!GoFsm)
+        {
+            GoFsm = GetComponent<PlayMakerFSM>();
+        }
+        
         pv = GetComponent<PhotonView>();
     }
 

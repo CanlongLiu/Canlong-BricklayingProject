@@ -9,15 +9,20 @@ using HutongGames.PlayMaker;
 public class UncertaintyEventController : MonoBehaviour
 {
 
-
+    
     PhotonView pv;
     PlayMakerFSM fSM;
     PlayMakerFSM fSMChangeValue;
+    PlayMakerFSM fSMSendNotification;
+    object avatarSelectionNumber;
     // Start is called before the first frame update
     void Start()
     {
         fSM = PlayMakerFSM.FindFsmOnGameObject(gameObject, "FSM");
         fSMChangeValue = PlayMakerFSM.FindFsmOnGameObject(gameObject, "ChangeValue");
+        fSMSendNotification = PlayMakerFSM.FindFsmOnGameObject(gameObject, "SendNotification");
+        pv = GetComponent<PhotonView>();
+        PhotonNetwork.LocalPlayer.CustomProperties.TryGetValue(MultiplayerVRConstants.AVATAR_SELECTION_NUMBER, out avatarSelectionNumber);
     }
 
     // Update is called once per frame
@@ -56,27 +61,49 @@ public class UncertaintyEventController : MonoBehaviour
     }
 
     [PunRPC]
-    public void AddDeliveryTime()
+    public void AddDeliveryTime()//specify to Supplier
     {
         fSMChangeValue.SendEvent("AddDeliveryTime");
+        
+        if ((int)avatarSelectionNumber == 0)
+        {
+            fSMSendNotification.SendEvent("NotifyDeliveryDelay");
+        }
+
     }
 
     [PunRPC]
-    public void ChangeDesign()
+    public void ChangeDesign()//specify to Manager
     {
         fSMChangeValue.SendEvent("ChangeDesign");
+
+        if ((int)avatarSelectionNumber == 2)
+        {
+            fSMSendNotification.SendEvent("NotifyDesignChange");
+        }
+           
     }
 
     [PunRPC]
-    public void AddProductionTime()
+    public void AddProductionTime()//specify to Supplier
     {
         fSMChangeValue.SendEvent("AddProductionTime");
+        if ((int)avatarSelectionNumber == 0)
+        {
+            fSMSendNotification.SendEvent("NotifyProductionDelay");
+        }
+        
     }
 
     [PunRPC]
-    public void BagSlotChanged()
+    public void BagSlotChanged()//specify to Subcontractor
     {
-        fSMChangeValue.SendEvent("BagSlotChanged");
+        fSMChangeValue.SendEvent("ReduceSlotCapacity");
+        if ((int)avatarSelectionNumber == 1)
+        {
+            fSMSendNotification.SendEvent("NotifyLowProductivity");
+        }
+   
     }
 
 }

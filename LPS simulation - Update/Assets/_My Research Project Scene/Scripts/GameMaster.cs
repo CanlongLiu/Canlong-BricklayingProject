@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Photon.Pun;
+using UnityEngine.SceneManagement;
 
 public class GameMaster : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class GameMaster : MonoBehaviour
     public ultimate_timer ultimate_timer_script2;
     public float increaseTimeInput;
     PhotonView pv;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -20,7 +22,29 @@ public class GameMaster : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+    }
+
+    public void ReloadGame()
+    {
+        pv.RPC("RestartGameNetwork", RpcTarget.AllBuffered);
         
+    }
+    public void LoadTraditional()
+    {
+        pv.RPC("LoadTraditionalScene", RpcTarget.AllBuffered);
+
+    }
+
+    public void LoadWarmup()
+    {
+        pv.RPC("LoadWarmupScene", RpcTarget.AllBuffered);
+
+    }
+    public void LoadExperiment()
+    {
+        pv.RPC("LoadExperimentScene", RpcTarget.AllBuffered);
+
     }
     public void StartGame()
     {
@@ -68,6 +92,30 @@ public class GameMaster : MonoBehaviour
     {
         ultimate_timer_script1.ResumeTimer();
         ultimate_timer_script2.ResumeTimer();
+    }
+
+    [PunRPC]
+    public void RestartGameNetwork()
+    {
+        PhotonNetwork.LoadLevel(SceneManager.GetActiveScene().name);
+    }
+
+    [PunRPC]
+    public void LoadTraditionalScene()
+    {
+        PhotonNetwork.LoadLevel("Experiment Traditional");
+    }
+
+    [PunRPC]
+    public void LoadWarmupScene()
+    {
+        PhotonNetwork.LoadLevel("Experiment Warmup");
+    }
+
+    [PunRPC]
+    public void LoadExperimentScene()
+    {
+        PhotonNetwork.LoadLevel("Experiment");
     }
 
     [PunRPC]
