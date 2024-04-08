@@ -7,7 +7,7 @@ Click this link for more information: https://bottlenose-wool-302.notion.site/Ho
 
 //General description//
 
-An mutliplayer virtual reality platform for LPS simulation and measuring player's behaviour and psychological responses.
+An mutliplayer virtual reality platform for LPS simulation and measuring player's behaviour and physiological responses.
 
 1. Given the complex and prolonged nature of the construction project, it can be costly and time-consuming for researchers to observe the dynamics of project participants' behaviour in meeting room and on-site, whereas it is also impossible for participants especially "Last Planners" to undertake certain tasks that may involve specific or intended interventions/stimulus only for research purposes. As virtual reality allows a real life-like experience to take place, it can stimulate more natural behaviour responses from participants to increase ecological validity of experimental results. An Oculus Quest2-based virtual reality platform is developed to provide a realistic representation of the construction & meeting workplace and LPS workflow for assessing project participants’ social behavior and psychologcial responses where the workers are immersed and led to perform natural behaviours.
 
